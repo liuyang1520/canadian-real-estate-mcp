@@ -1,8 +1,8 @@
-# 🏠 Free Real Estate MCP Server
+# 🏠 Canadian Real Estate MCP Server
 
 ## 100% Free Canadian Real Estate Data - No API Keys Required!
 
-A comprehensive Model Context Protocol (MCP) server providing free access to Canadian real estate market data, statistics, and analytics from government and public sources.
+A Model Context Protocol (MCP) server providing free access to Canadian real estate market data from **real government APIs only**. No fake data, no mock endpoints - only authentic government sources.
 
 ## ✨ Key Features
 
@@ -13,21 +13,18 @@ A comprehensive Model Context Protocol (MCP) server providing free access to Can
 - **No usage limits**
 - **No paid tiers**
 
-### 🇨🇦 **Comprehensive Canadian Coverage**
+### 🇨🇦 **Real Government Data Sources**
 
-- All provinces and major cities
-- Government data sources (Statistics Canada, CMHC)
-- Municipal open data
-- Real estate board public reports
+- **Statistics Canada** via Open Government Portal
+- **CMHC** via Open Government Portal  
+- **Bank of Canada** Valet API
+- **US Census Bureau** (for housing context)
 
-### 📊 **Rich Data Sources**
+### 🎯 **Honest & Transparent**
 
-- **Statistics Canada**: Official housing price indices and economic indicators
-- **CMHC**: Housing starts, market reports, and rental data
-- **Bank of Canada**: Interest rates affecting housing market
-- **Municipal Data**: Property assessments and tax information
-- **Census Data**: Demographics and housing characteristics
-- **Economic Indicators**: GDP, unemployment, inflation affecting real estate
+- **Real APIs only** - No fake or simulated data
+- **Clear messaging** when data sources are unavailable
+- **Authentic government data** from official sources
 
 ## 🚀 Quick Start
 
@@ -42,129 +39,106 @@ npm run build
 npm start
 ```
 
-**That's it!** The server works immediately with free data sources.
+**That's it!** The server connects to real government APIs immediately.
 
-## 🛠️ Available Tools (19 Total)
+## 🛠️ Available Tools (16 Total)
 
-### **Government Data Sources (5 tools)**
+### **✅ Core Data Tools (4 tools) - With Real APIs**
 
-1. **`get_statcan_housing_data`** - Statistics Canada housing data
-2. **`get_statcan_housing_index`** - Official housing price index
-3. **`get_cmhc_market_data`** - CMHC market reports
-4. **`get_cmhc_housing_starts`** - Housing construction data
-5. **`get_opengov_housing_data`** - Open Government Portal data
+1. **`get_housing_price_index`** - Statistics Canada housing price index via Open Government Portal
+2. **`get_cmhc_housing_data`** - CMHC housing starts and construction data via Open Government Portal
+3. **`get_bank_of_canada_rates`** - Current interest rates from Bank of Canada Valet API
+4. **`get_opengov_housing_data`** - Housing datasets from Canada Open Government Portal
 
-### **Market Analysis (5 tools)**
+### **⚠️ Market Analysis Tools (4 tools) - Limited Data Available**
 
-6. **`get_basic_market_data`** - Basic market overview for any city
-7. **`get_free_market_trends`** - Market trends and forecasts
-8. **`get_rental_market_data`** - Rental market statistics
-9. **`get_realestate_board_data`** - Local real estate board reports
-10. **`get_market_comparison`** - Compare multiple cities
+5. **`get_market_data`** - Basic market data (connects to available government sources)
+6. **`get_property_listings`** - Property listings (currently unavailable - no free public API)
+7. **`get_rental_market_data`** - Rental market data (currently unavailable - no free public API)
+8. **`get_market_trends`** - Market trends (currently unavailable - no free public API)
 
-### **Property & Demographics (4 tools)**
+### **⚠️ Demographics Tools (2 tools) - Limited Data Available**
 
-11. **`get_property_listings`** - Property listings from public sources
-12. **`get_municipal_property_data`** - Municipal property data
-13. **`get_property_tax_data`** - Property assessments and taxes
-14. **`get_census_housing_data`** - Demographics and housing characteristics
+9. **`get_census_housing_data`** - Census housing data (currently unavailable - no free public API)
+10. **`get_neighborhood_insights`** - Neighborhood analysis (limited due to data availability)
 
-### **Advanced Analysis (3 tools)**
+### **⚠️ Municipal Tools (2 tools) - No Free APIs Available**
 
-15. **`get_neighborhood_insights`** - Neighborhood analysis and demographics
-16. **`get_comprehensive_market_analysis`** - Complete market analysis combining all sources
-17. **`get_affordability_analysis`** - Housing affordability calculator
+11. **`get_property_tax_data`** - Property tax data (currently unavailable - no free public API)
+12. **`get_realestate_board_data`** - Real estate board data (currently unavailable - no free public API)
 
-### **Economic Context (2 tools)**
+### **⚠️ Analysis Tools (4 tools) - Limited Data Available**
 
-18. **`get_boc_interest_rates`** - Bank of Canada interest rates
-19. **`get_economic_indicators`** - Economic factors affecting housing
+13. **`get_economic_indicators`** - Economic indicators (currently unavailable - no free public API)
+14. **`get_affordability_analysis`** - Housing affordability calculator (limited due to data availability)
+15. **`get_market_comparison`** - Compare multiple cities (limited due to data availability)
+16. **`get_comprehensive_market_analysis`** - Comprehensive analysis (limited due to data availability)
 
 ## 📝 Usage Examples
 
-### Get Vancouver Market Data
+### ✅ Get Housing Price Index (Real Data)
 
 ```json
 {
-  "tool": "get_basic_market_data",
+  "tool": "get_housing_price_index",
   "args": {
-    "city": "Vancouver",
-    "dataType": "all"
-  }
-}
-```
-
-### Compare Toronto vs Montreal
-
-```json
-{
-  "tool": "get_market_comparison",
-  "args": {
-    "cities": ["Toronto", "Montreal"],
-    "metrics": ["price", "affordability", "market_activity"]
-  }
-}
-```
-
-### Housing Affordability Analysis
-
-```json
-{
-  "tool": "get_affordability_analysis",
-  "args": {
-    "city": "Calgary",
-    "householdIncome": 85000
-  }
-}
-```
-
-### Comprehensive Market Analysis
-
-```json
-{
-  "tool": "get_comprehensive_market_analysis",
-  "args": {
-    "city": "Ottawa",
     "province": "ON"
   }
 }
 ```
 
-### Get Property Listings with Filters
+### ✅ Get Bank of Canada Interest Rates (Real Data)
 
 ```json
 {
-  "tool": "get_property_listings",
+  "tool": "get_bank_of_canada_rates",
+  "args": {}
+}
+```
+
+### ✅ Get CMHC Housing Data (Real Data)
+
+```json
+{
+  "tool": "get_cmhc_housing_data",
   "args": {
-    "city": "Toronto",
-    "propertyType": "condo",
-    "priceRange": { "min": 400000, "max": 800000 },
-    "limit": 25
+    "city": "Toronto"
   }
 }
 ```
 
-## 🏙️ Supported Cities
+### ✅ Get Open Government Housing Datasets (Real Data)
 
-**Major Cities**: Toronto, Vancouver, Calgary, Ottawa, Montreal, Edmonton, Winnipeg, Halifax, Quebec City, Hamilton, Kitchener, London, Victoria, Saskatoon, Regina, St. John's
+```json
+{
+  "tool": "get_opengov_housing_data",
+  "args": {
+    "province": "BC"
+  }
+}
+```
+
+## 🏙️ Supported Coverage
 
 **Provinces**: All Canadian provinces (ON, BC, AB, QC, MB, SK, NS, NB, PE, NL)
+**Cities**: Major Canadian cities supported where government data is available
 
-## 📈 Data Sources
+## 📈 Real Data Sources
 
-### Government & Official Sources
+### ✅ **Active Government APIs**
 
-- **Statistics Canada Web Data Service** - Housing price indices, economic indicators
-- **CMHC Housing Market Information Portal** - Market reports, housing starts, rental data
-- **Bank of Canada API** - Interest rates, monetary policy
-- **Canada Open Government Portal** - Public housing datasets
-- **Canadian Census Data** - Demographics, housing characteristics
+- **Statistics Canada** - Housing price indices via Open Government Portal
+- **CMHC** - Housing starts and construction data via Open Government Portal
+- **Bank of Canada Valet API** - Official interest rates and monetary policy data
+- **US Census Bureau** - Housing construction context data (free, no auth)
 
-### Municipal & Regional Sources
+### ❌ **No Free Public APIs Available**
 
-- **Property Assessment Data** - Municipal tax assessments and property values
-- **Real Estate Board Reports** - Market statistics and trends
-- **Municipal Open Data** - Property listings and zoning information
+- **Municipal Property Data** - No unified free API across Canadian municipalities
+- **Real Estate Board Data** - Boards require paid subscriptions for API access
+- **Census Demographics** - No free real-time API for detailed housing demographics
+- **Rental Market Data** - CMHC rental data requires paid access
+- **Economic Indicators** - No free consolidated API for real-time economic data
 
 ## 🔧 Development
 
@@ -182,78 +156,73 @@ npm run typecheck
 npm run lint
 ```
 
-## 📊 Sample Data Structure
+## 📊 Sample Real Data Response
 
-### Market Data Response
+### Housing Price Index (Real Data)
 
 ```json
 {
-  "city": "Vancouver",
-  "averagePrice": 1231793,
-  "medianPrice": 769601,
-  "totalSales": 1358,
-  "averageDaysOnMarket": 45,
-  "priceChangePercent": -6.97,
-  "inventoryCount": 3154,
-  "source": "CMHC Market Data"
+  "province": "ON",
+  "referenceDate": "2024-08-19",
+  "datasetCount": 12,
+  "source": "Open Government Portal (CMHC Data)",
+  "apiUrl": "https://open.canada.ca/data/en/api/3/action/package_search"
 }
 ```
 
-### Comprehensive Analysis Response
+### Bank of Canada Rates (Real Data)
+
+```json
+{
+  "overnightRate": 4.25,
+  "mortgageRate5Year": 6.89,
+  "lastUpdated": "2024-08-15",
+  "trend": "stable",
+  "source": "Bank of Canada Valet API",
+  "apiEndpoint": "https://www.bankofcanada.ca/valet/observations"
+}
+```
+
+### Unavailable Data Response
 
 ```json
 {
   "city": "Toronto",
-  "analysisDate": "2024-08-17",
-  "marketOverview": {
-    /* CMHC market data */
-  },
-  "demographics": {
-    /* Census housing data */
-  },
-  "propertyAssessment": {
-    /* Municipal tax data */
-  },
-  "rentalMarket": {
-    /* Rental statistics */
-  },
-  "economicContext": {
-    /* Economic indicators */
-  },
-  "constructionActivity": {
-    /* Housing starts */
-  },
-  "summary": [
-    "Strong price growth indicates a seller's market",
-    "Fast-moving market with high demand"
-  ]
+  "message": "Rental market data not available - no free public API exists"
 }
 ```
 
 ## 🌟 Why This Server?
 
-### **Versus Paid APIs**
+### **Honest & Transparent**
 
-- ❌ Paid APIs: Require expensive subscriptions ($50-500/month)
-- ✅ This server: **Completely free**
+- ✅ **Real data only** - No fake or simulated data
+- ✅ **Clear messaging** when APIs are unavailable
+- ✅ **Government sources** - Official, reliable data
 
-### **Versus Limited Free APIs**
+### **Versus Other Solutions**
 
-- ❌ Limited APIs: Only basic data, require registration
-- ✅ This server: **Comprehensive data from 19 different tools**
+- ❌ **Paid APIs**: Expensive subscriptions ($50-500/month)
+- ❌ **Fake Data APIs**: Generate unrealistic mock data
+- ❌ **Web Scraping**: Unreliable, breaks frequently, legal issues
+- ✅ **This server**: Real government data, completely free, always honest
 
-### **Versus Web Scraping**
+## 🎯 Current Limitations
 
-- ❌ Web scraping: Unreliable, breaks frequently, legal issues
-- ✅ This server: **Official government data sources, always reliable**
+**Data Availability**: Many real estate data sources require paid subscriptions or are not available via free public APIs. This server only provides data from sources that are:
+- Completely free
+- Require no registration
+- Are publicly accessible
+- Are official government sources
+
+**What This Means**: Some tools return "data not available" messages rather than fake data. This ensures complete transparency and honesty about data availability.
 
 ## 🏆 Perfect For
 
-- **Real Estate Analysis** - Market research and investment decisions
-- **Academic Research** - Housing market studies and analysis
-- **App Development** - Building real estate applications
-- **Personal Use** - Home buying/selling decisions
-- **Market Reports** - Creating comprehensive market analysis
+- **Government Data Research** - Access real official housing statistics
+- **Interest Rate Monitoring** - Real-time Bank of Canada rates
+- **Academic Research** - Authentic government housing data
+- **Transparency** - Know exactly what data is real vs. unavailable
 
 ## 📄 License
 
@@ -261,8 +230,8 @@ MIT License - Free for commercial and personal use
 
 ## 🤝 Contributing
 
-Contributions welcome! This server uses only public, free data sources to ensure it remains completely free for everyone.
+Contributions welcome! This server maintains a strict policy of **real data only** - no fake or mock data generation.
 
 ---
 
-**🎯 Start using comprehensive Canadian real estate data in seconds - no setup required!**
+**🎯 Real Canadian real estate data from government sources - no fake data, complete transparency!**
